@@ -1,0 +1,77 @@
+1.	Вероятность того, что стрелок попадет в мишень, выстрелив один раз, равна 0.8. Стрелок выстрелил 100 раз. Найдите вероятность того, что стрелок попадет в цель ровно 85 раз. 
+	По формуле Бернулли
+
+        C10085 = 100! / 85!*(100-85)!
+
+        P = 100! / 85!*(100-85)! * 0.885 * 0.215 
+
+	math.factorial(100) / (math.factorial(85) * math.factorial(15)) * (pow(0.8, 85)) * (pow(0.2, 15)) = 0.04806
+
+2.	Вероятность того, что лампочка перегорит в течение первого дня эксплуатации, равна 0.0004. В жилом комплексе после ремонта в один день включили 5000 новых лампочек. 
+Какова вероятность, что ни одна из них не перегорит в первый день?
+Распределение Пуассона:
+
+P = ΛM/m!*e-λ
+
+Λ =  5000 / 0.0004 = 2  
+
+P = (pow(2, 0)/ math.factorial(0)) * pow(2.72, -2) = 0.135
+
+Какова вероятность, что перегорят ровно две?
+
+P = (pow(2, 2)/ math.factorial(2)) * pow(2.72, -2) = 0.2703
+
+3.	Монету подбросили 144 раза. Какова вероятность, что орел выпадет ровно 70 раз?
+
+По формуле Бернулли:
+
+P144(x=70) = math.factorial(144) / (math.factorial(70) * math.factorial(74)) * (pow(0.5, 70)) * (pow(0.5, 74)) = 0,066281 
+
+4.	В первом ящике находится 10 мячей, из которых 7 - белые. Во втором ящике - 11 мячей, из которых 9 белых. 
+        Из каждого ящика вытаскивают случайным образом по два мяча. 
+	Какова вероятность того, что все мячи белые? 
+
+(math.factorial(7) / (math.factorial(2) * math.factorial(7-2))) / 
+(math.factorial(10) / (math.factorial(2) * math.factorial(10-2)))
+ * 
+(math.factorial(9) / (math.factorial(2) * math.factorial(9-2))) / 
+(math.factorial(11) / (math.factorial(2) * math.factorial(11-2))) 
+
+= 0.3054545
+
+	Какова вероятность того, что ровно два мяча белые?
+
+P1 =  (math.factorial(7) / (math.factorial(2) * math.factorial(7-2))) /
+ (math.factorial(10) / (math.factorial(2) * math.factorial(10-2)))
+ * 
+(math.factorial(2) / (math.factorial(2) * math.factorial(2-2))) /
+ (math.factorial(11) / (math.factorial(2) * math.factorial(11-2)))  =   0.0084848
+
+P2 =  (math.factorial(3) / (math.factorial(2) * math.factorial(3-2))) /
+ (math.factorial(10) / (math.factorial(2) * math.factorial(10-2)))
+ * 
+(math.factorial(9) / (math.factorial(2) * math.factorial(9-2))) /
+ (math.factorial(11) / (math.factorial(2) * math.factorial(11-2)))  =   0.0436364
+
+P3 = 
+(math.factorial(7) / (math.factorial(1) * math.factorial(7-1)))
+*
+ (math.factorial(3) / (math.factorial(1) * math.factorial(3-1))) /
+ (math.factorial(10) / (math.factorial(2) * math.factorial(10-2)))
+ * 
+(math.factorial(9) / (math.factorial(1) * math.factorial(9-1)))
+*
+(math.factorial(2) / (math.factorial(1) * math.factorial(2-1))) / 
+(math.factorial(11) / (math.factorial(2) * math.factorial(11-2)))  =   0.1527273
+
+	Pобщ = 0,0084848 +0,0436364 + 0,1527273 = 0.2048485
+
+
+	 Какова вероятность того, что хотя бы один мяч белый?
+
+1  -  (math.factorial(3) / (math.factorial(2) * math.factorial(3-2))) /
+ (math.factorial(10) / (math.factorial(2) * math.factorial(10-2))) 
+  *           
+ (math.factorial(2) / (math.factorial(2) * math.factorial(2-2))) / 
+(math.factorial(11) / (math.factorial(2) * math.factorial(11-2)))              
+    = 0.9987878787878788
